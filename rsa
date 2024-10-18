@@ -1,0 +1,12 @@
+#!/bin/bash
+# Script to factorize a number into two prime numbers
+
+read -r number < "$1"
+for ((i=2; i<=number/2; i++)); do
+  if (( number % i == 0 )); then
+    p="$i"
+    q="$(($number / i))"
+    echo "$number=$p*$q"
+    break
+  fi
+done

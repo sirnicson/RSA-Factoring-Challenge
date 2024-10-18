@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script to factorize numbers into two smaller numbers
+
+while read -r number; do
+  for ((i=2; i<=number/2; i++)); do
+    if (( number % i == 0 )); then
+      echo "$number=$i*$(($number / i))"
+      break
+    fi
+  done
+done < "$1"
